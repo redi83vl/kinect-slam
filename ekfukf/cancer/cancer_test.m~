@@ -1,0 +1,20 @@
+load /proj/finnwell/spatial/data/cancer2007/testdata/lungcancer_female_10years.mat
+name = sprintf('c%d_lungcancer_FIC_3exp_.mat',run);
+
+
+[n, nin] = size(xx);
+
+% $$$    gpcf1 = gpcf_st_exp('init',2,1, 'lengthScale', [20 26], 'magnSigma2', 0.04);
+% $$$    gpcf1.p.lengthScale = t_p({1 4});
+% $$$    gpcf1.p.magnSigma2 = t_p({0.3 4});
+% $$$ 
+% $$$    gpcf2 = gpcf_t_exp('init',3, 'lengthScale', [100], 'magnSigma2', 0.11);
+% $$$    gpcf2.p.lengthScale = t_p({1 4});
+% $$$    gpcf2.p.magnSigma2 = t_p({0.3 4});
+% $$$ 
+% $$$    gpcf3 = gpcf_s_exp('init',3, 'lengthScale', [90], 'magnSigma2', 0.11);
+% $$$    gpcf3.p.lengthScale = t_p({1 4});
+% $$$    gpcf3.p.magnSigma2 = t_p({0.3 4});
+
+load 'c53_melanoma_FIC_exp_.mat'
+   rt = thin(rgp, 800, 80);

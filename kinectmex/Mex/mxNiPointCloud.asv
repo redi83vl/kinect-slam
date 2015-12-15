@@ -1,0 +1,25 @@
+function [X,Y,Z,R,G,B]=mxNiPointCloud(KinectHandles)
+	
+	W = mxNiDepthRealWorld(KinectHandles); I = permute();
+	I = mxNiPhoto(KinectHandles); I = permute(I,[3,2,1]);
+	
+	if nargout==2
+		X=W;
+		Y=I;
+		return;
+	end
+	
+	%3D points coordinates from depth map
+	X=W(:,:,1);X=X(:);
+	Y=W(:,:,2);Y=Y(:);
+	Z=W(:,:,3);Z=Z(:);
+	
+	%3D points colors from the image
+	R=I(:,:,1);R=R(:);
+	G=I(:,:,2);G=G(:);
+	B=I(:,:,3);B=B(:);
+	
+	inl = logical( (Z > 0.3) .* (Z<10) );% good points
+	X=X(inl);	Y=Y(inl);	Z=Z(inl);% 3D points coordinates
+	R=R(inl);	G=G(inl);	B=B(inl);% 3D points colors
+end

@@ -1,0 +1,7 @@
+
+Ver 0.2 - Vezhnevets Vladimir
+ Replaced 'randint' function with 'rand' not to be dependent on 
+ Communications toolbox 
+
+Ver 0.1 - Marinichev Kirill, Anton Konushin
+ Initial version
